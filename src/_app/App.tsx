@@ -81,7 +81,7 @@ function App() {
                                     <Route path={APP_ROUTE.ORDER.SUCCESS} element={<SuccessPage connector={connector} />} />
                                     <Route path={APP_ROUTE.ORDER.FAIL} element={<FailPage />} />
                                     <Route path={APP_ROUTE.ORDER.CANCEL} element={<CancelPage />} />
-                                    <Route path={APP_ROUTE.ADMIN} element={<AdminPage connector={connector} />} />
+                                    <Route path={APP_ROUTE.ADMIN} element={<AdminPage connector={connector} login={login} />} />
                                 </Routes>
                             </article>
                         </Wrapper>

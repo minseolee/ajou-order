@@ -9,14 +9,24 @@ import S from './AdminPage.module.css';
 import AdminOrderBox from "./modules/admin-order-box/AdminOrderBox";
 
 import type { OrderedItemModel } from "./config/type";
-import type { GFC } from "../../common/types/fc";
+import type {GFC, GFCWithProp} from "../../common/types/fc";
 
 
-const AdminPage: GFC = ({ connector }) => {
+interface Props {
+    login: boolean;
+}
+const AdminPage: GFCWithProp<Props> = ({ connector, login }) => {
     const navigator = useNavigate();
     let adminSocket: AdminSocket|null = null;
     const [orderList, setOrderList] = useState<Array<OrderedItemModel>>([]);
     
+    
+    useEffect(() => {
+        if (!login) {
+            adminSocket?.disconnect();
+            adminSocket = null;
+        }
+    }, [login]);
     
     useEffect(() => {
         if (!connector.current?.getIsAdmin()) {
