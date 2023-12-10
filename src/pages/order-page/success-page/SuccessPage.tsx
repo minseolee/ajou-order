@@ -12,11 +12,10 @@ const SuccessPage: GFC = ({ connector }) => {
     const location = useLocation();
     
     useEffect(() => {
-        if (!location.search || !connector.current) return;
-        
+        console.log('approve');
         void (async () => {
             try {
-                await connector.current!.post<OrderApprovePostModel>('/order/approve', {
+                await connector.current?.post<OrderApprovePostModel>('/order/approve', {
                     pg_token: getQueryStrings(location.search, 'pg_token'),
                     payment_id: localStorage.getItem('payment_id'),
                 });
