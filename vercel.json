@@ -1,14 +1,6 @@
 {
   "rewrites": [
     {
-      "source": "/api",
-      "destination": "https://ajou-eats-api.seunglab.dev/api"
-    },
-    {
-      "source": "/api*",
-      "destination": "https://ajou-eats-api.seunglab.dev/api*"
-    },
-    {
       "source": "/api/:path*",
       "destination": "https://ajou-eats-api.seunglab.dev/api/:path*"
     },
