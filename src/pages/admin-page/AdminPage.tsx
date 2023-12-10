@@ -25,7 +25,7 @@ const AdminPage: GFC = ({ connector }) => {
             return;
         }
         
-        adminSocket = new AdminSocket();
+        if (!adminSocket) adminSocket = new AdminSocket();
         
         adminSocket.onOrder((e) => {
             setOrderList((prev) => {
