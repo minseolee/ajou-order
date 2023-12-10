@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://ajou-eats-api.seunglab.dev/:path*"
+      "destination": "https://ajou-eats-api.seunglab.dev/api/:path*"
     },
     {
       "source": "/api/:path*/",
-      "destination": "https://ajou-eats-api.seunglab.dev/:path*/"
+      "destination": "https://ajou-eats-api.seunglab.dev/api/:path*/"
     }
   ]
 }
