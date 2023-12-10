@@ -1,0 +1,36 @@
+.container {
+    width: 100vw;
+    max-width: 768px;
+    height: 100vh;
+    margin-top: calc(-1*var(--header-height));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.text {
+    font-size: 20px;
+    margin: 30px;
+}
+
+.btn-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.btn-area button {
+    width: calc(40% - 8px);
+    height: 36px;
+    border-radius: 8px;
+}
+
+.btn {
+    border: none;
+    background-color: var(--brand-color);
+    color: white;
+}

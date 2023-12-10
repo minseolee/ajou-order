@@ -1,0 +1,21 @@
+.container {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
+    width: 100vw;
+    max-width: 768px;
+    height: 50vh;
+    border-top: 2px solid var(--brand-color);
+    background-color: white;
+
+    padding: 24px;
+}
+
+.close-btn {
+    font-size: 32px;
+    font-weight: bold;
+    position: relative;
+    right: 0;
+    float: right;
+    cursor: pointer;
+}

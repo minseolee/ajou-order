@@ -1,0 +1,6 @@
+[[redirects]]
+  from = "/api/*"
+  to = "https://ajou-eats-api.seunglab.dev/api/:splat"
+  status = 200
+  force = true
+  secure = true
