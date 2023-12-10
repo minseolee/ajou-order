@@ -66,7 +66,7 @@ function App() {
                 <CartProvider>
                     <Toast />
                     <div className={"App"}>
-                        <Wrapper connector={connector}>
+                        <Wrapper connector={connector} login={login}>
                             {
                                 login && <Header headerName={headerName} connector={connector} />
                             }

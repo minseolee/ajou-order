@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import APP_ROUTE from "../../_app/config/route";
 import { ALERT } from "../../common/constants";
 
 
@@ -14,16 +15,18 @@ import type { GFC } from "../../common/types/fc";
 
 const MainPage: GFC = ({ connector }) => {
     const [model, setModel] = useState<MainPageModel|null>(null);
+    const navigator = useNavigate();
     
     useEffect(() => {
         if (!connector.current) return;
         
         void (async () => {
             try {
-                const response = await connector.current!.get<MainPageModel>('/shop');
+                const response = await connector.current?.get<MainPageModel>('/shop');
                 setModel(response as MainPageModel);
             } catch(e) {
                 alert(ALERT.REQ_FAIL);
+                navigator(APP_ROUTE.MAIN);
             }
         })();
     }, []);

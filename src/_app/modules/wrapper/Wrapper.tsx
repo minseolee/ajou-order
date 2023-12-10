@@ -17,13 +17,21 @@ import type { ReactNode , MutableRefObject } from "react";
 type ShopInfo = MenuPageModel['shop'];
 
 
-interface Props { children: ReactNode; }
+interface Props { children: ReactNode; login: boolean }
 
 // NEEDED TO USE CONTEXTS
-const Wrapper: GFCWithProp<Props> = ({ connector, children }) => {
+const Wrapper: GFCWithProp<Props> = ({ connector, children, login }) => {
     const { bSElement } = useContext(BSContext);
     const { setToastItem } = useContext(ToastContext);
     const socket: MutableRefObject<Socket|null> = useRef(null);
+    
+    
+    useEffect(() => {
+        if (!login) {
+            socket.current?.disconnect();
+            socket.current = null;
+        }
+    }, [login]);
     
     useEffect(() => {
         if (connector.current?.getIsAdmin()) return;
@@ -47,7 +55,7 @@ const Wrapper: GFCWithProp<Props> = ({ connector, children }) => {
             socket.current?.disconnect();
             socket.current = null;
         };
-    }, [connector]);
+    }, [connector, login]);
 	
     return (
         <div className={
