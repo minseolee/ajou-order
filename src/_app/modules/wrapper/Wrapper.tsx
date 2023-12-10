@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
 
 import { STATUS } from "../../../common/constants";
-import Socket from "../../../common/instances/Socket";
+import UserSocket from "../../../common/instances/UserSocket";
 import { BSContext } from "../../../contexts/bottom-sheet";
 import { ToastContext } from "../../../contexts/toast";
 
@@ -23,7 +23,7 @@ interface Props { children: ReactNode; login: boolean }
 const Wrapper: GFCWithProp<Props> = ({ connector, children, login }) => {
     const { bSElement } = useContext(BSContext);
     const { setToastItem } = useContext(ToastContext);
-    const socket: MutableRefObject<Socket|null> = useRef(null);
+    const socket: MutableRefObject<UserSocket|null> = useRef(null);
     
     
     useEffect(() => {
@@ -36,7 +36,7 @@ const Wrapper: GFCWithProp<Props> = ({ connector, children, login }) => {
     useEffect(() => {
         if (connector.current?.getIsAdmin()) return;
     
-        if (!socket.current) socket.current = new Socket();
+        if (!socket.current) socket.current = new UserSocket();
     
         socket.current!.onOrder(async (d: OrderedItemModel) => {
             if (d.status !== STATUS.COMPLETED) return;

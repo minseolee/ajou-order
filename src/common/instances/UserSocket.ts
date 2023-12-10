@@ -6,33 +6,33 @@ import logger from "../utils/logger";
 import type { Socket } from "socket.io-client";
 
 
-class AdminSocket {
+class UserSocket {
     private ioInstance: Socket|null;
 	
     constructor() {
-        this.ioInstance = io(`${SOCKET_URL}/admin`, {
+        this.ioInstance = io(SOCKET_URL, {
             path: '/api',
             withCredentials: true
         });
-        logger('adminSocket created', this.ioInstance);
+        logger('userSocket created', this.ioInstance);
         
         this.ioInstance.on('connect', () => {
-            logger('WS: admin connected');
+            logger('Connected to Socket.IO server');
         });
 		
         this.ioInstance.on('auth', (e) => {
-            logger('WS: admin auth', e);
+            logger('auth', e);
         });
     }
 	
     onOrder(listener: (a: any) => void) {
         return this.ioInstance?.on('order', listener);
     }
-	
+    
     disconnect() {
         this.ioInstance?.disconnect();
         this.ioInstance = null;
     }
 }
 
-export default AdminSocket;
+export default UserSocket;
