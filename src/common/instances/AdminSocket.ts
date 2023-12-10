@@ -10,7 +10,7 @@ class AdminSocket {
     private ioInstance: Socket|null;
 	
     constructor() {
-        this.ioInstance = io(`${SOCKET_URL}/api/admin`, {
+        this.ioInstance = io(SOCKET_URL + '/ws/admin', {
             withCredentials: true
         });
         logger('adminSocket created', this.ioInstance);

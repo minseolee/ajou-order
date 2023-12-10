@@ -7,6 +7,14 @@
     {
       "source": "/api/:path*/",
       "destination": "https://ajou-eats-api.seunglab.dev/api/:path*/"
+    },
+    {
+      "source": "/ws/:path*",
+      "destination": "https://ajou-eats-api.seunglab.dev/ws/:path*"
+    },
+    {
+      "source": "/ws/:path*/",
+      "destination": "https://ajou-eats-api.seunglab.dev/ws/:path*/"
     }
   ]
 }
