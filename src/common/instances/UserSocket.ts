@@ -10,7 +10,7 @@ class UserSocket {
     private ioInstance: Socket|null;
 	
     constructor() {
-        this.ioInstance = io(SOCKET_URL + '/ws', {
+        this.ioInstance = io(SOCKET_URL + '/api', {
             withCredentials: true
         });
         logger('userSocket created', this.ioInstance);
