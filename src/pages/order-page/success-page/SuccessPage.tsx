@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+import { FETCH_METHOD, fetchData } from "../../../common/utils/api";
 import { getQueryStrings } from "../../../common/utils/query";
 import ExitButton from "../module/ExitButton";
 
@@ -15,10 +16,14 @@ const SuccessPage: GFC = ({ connector }) => {
         console.log('approve');
         void (async () => {
             try {
-                await connector.current?.post<OrderApprovePostModel>('/order/approve', {
+                await fetchData<OrderApprovePostModel>('/order/approve', FETCH_METHOD.POST, {
                     pg_token: getQueryStrings(location.search, 'pg_token'),
                     payment_id: localStorage.getItem('payment_id'),
                 });
+                // await connector.current?.post<OrderApprovePostModel>('/order/approve', {
+                //     pg_token: getQueryStrings(location.search, 'pg_token'),
+                //     payment_id: localStorage.getItem('payment_id'),
+                // });
             } catch (e) {
                 alert("결제에 실패하였습니다");
                 console.error(e);
