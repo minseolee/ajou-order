@@ -9,7 +9,7 @@ import S from './AdminPage.module.css';
 import AdminOrderBox from "./modules/admin-order-box/AdminOrderBox";
 
 import type { OrderedItemModel } from "./config/type";
-import type {GFC, GFCWithProp} from "../../common/types/fc";
+import type { GFCWithProp } from "../../common/types/fc";
 
 
 interface Props {
