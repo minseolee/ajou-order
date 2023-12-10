@@ -32,6 +32,8 @@ const AdminPage: GFCWithProp<Props> = ({ connector, login }) => {
         if (!connector.current?.getIsAdmin()) {
             alert(ALERT.REQ_WRONG);
             navigator(APP_ROUTE.LOGIN);
+            adminSocket?.disconnect();
+            adminSocket = null;
             return;
         }
         

@@ -34,10 +34,9 @@ const Wrapper: GFCWithProp<Props> = ({ connector, children, login }) => {
     }, [login]);
     
     useEffect(() => {
-        if (connector.current?.getIsAdmin()) return;
-    
         if (!socket.current) socket.current = new UserSocket();
     
+        if (connector.current?.getIsAdmin()) return;
         socket.current!.onOrder(async (d: OrderedItemModel) => {
             if (d.status !== STATUS.COMPLETED) return;
             
