@@ -17,7 +17,7 @@ const DEV_API_URL = 'http://localhost:8080';
 const PROD_API_URL = 'https://ajou-eats-api.seunglab.dev';
 
 const DEV_SOCKET_URL = 'ws://localhost:8080';
-const PROD_SOCKET_URL = 'wss://ajou-eats-api.seunglab.dev/api';
+const PROD_SOCKET_URL = 'wss://ajou-eats-api.seunglab.dev';
 
 // const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
 const API_URL = PROD_API_URL;

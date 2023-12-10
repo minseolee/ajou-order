@@ -5,7 +5,10 @@ import logger from "../utils/logger";
 
 
 class AdminSocket {
-    private ioInstance = io(`${SOCKET_URL}/admin`, { withCredentials: true });
+    private ioInstance = io(`${SOCKET_URL}/admin`, {
+        path: '/api',
+        withCredentials: true
+    });
 	
     constructor() {
         this.ioInstance.on('connect', () => {
